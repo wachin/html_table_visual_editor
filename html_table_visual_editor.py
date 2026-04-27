@@ -24,6 +24,8 @@ from PyQt6.QtWidgets import (
     QFileDialog,
     QMessageBox,
     QToolBar,
+    QToolButton,
+    QMenu,
     QTabWidget,
     QTextEdit,
     QWidget,
@@ -767,10 +769,7 @@ class HtmlTableVisualEditor(QMainWindow):
         toolbar.setIconSize(toolbar.iconSize())
         self.addToolBar(toolbar)
 
-        self.add_action(toolbar, "📄 Nuevo", self.new_file, "Ctrl+N")
-        self.add_action(toolbar, "📂 Abrir", self.open_file, "Ctrl+O")
-        self.add_action(toolbar, "💾 Guardar", self.save_file, "Ctrl+S")
-        self.add_action(toolbar, "💾…", self.save_file_as, "Ctrl+Shift+S")
+        self.add_file_menu(toolbar)
 
         toolbar.addSeparator()
 
@@ -814,6 +813,30 @@ class HtmlTableVisualEditor(QMainWindow):
 
         self.add_action(toolbar, "🔄 Ver HTML", self.visual_to_code, tooltip="Actualizar código desde la vista visual")
         self.add_action(toolbar, "✅ Aplicar", self.code_to_visual, tooltip="Aplicar código HTML a la vista visual")
+
+    def add_file_menu(self, toolbar):
+        file_menu = QMenu("Archivo", self)
+        self.add_menu_action(file_menu, "📄 Nuevo", self.new_file, "Ctrl+N")
+        self.add_menu_action(file_menu, "📂 Abrir", self.open_file, "Ctrl+O")
+        self.add_menu_action(file_menu, "💾 Guardar", self.save_file, "Ctrl+S")
+        self.add_menu_action(file_menu, "💾 Guardar como ...", self.save_file_as, "Ctrl+Shift+S")
+
+        file_button = QToolButton(self)
+        file_button.setText("Archivo")
+        file_button.setToolTip("Archivo")
+        file_button.setMenu(file_menu)
+        file_button.setPopupMode(QToolButton.ToolButtonPopupMode.InstantPopup)
+        toolbar.addWidget(file_button)
+
+    def add_menu_action(self, menu, text, callback, shortcut=None):
+        action = QAction(text, self)
+        if shortcut:
+            action.setShortcut(QKeySequence(shortcut))
+        action.setToolTip(text)
+        action.triggered.connect(callback)
+        menu.addAction(action)
+        self.addAction(action)
+        return action
 
     def add_action(self, toolbar, text, callback, shortcut=None, tooltip=None):
         action = QAction(text, self)
