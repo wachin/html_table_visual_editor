@@ -105,6 +105,43 @@ DEFAULT_HTML = """<!DOCTYPE html>
 """
 
 
+EMPTY_HTML = """<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Nuevo documento HTML</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        line-height: 1.5;
+    }
+
+    table {
+        border-collapse: collapse;
+        margin: 15px 0;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #444;
+        padding: 8px;
+        min-width: 80px;
+        vertical-align: top;
+    }
+
+    th {
+        background: #e8e8e8;
+    }
+</style>
+</head>
+<body contenteditable="true">
+
+</body>
+</html>
+"""
+
+
 EDITOR_JS = r"""
 (function () {
     function ensureEditorStyles() {
@@ -919,7 +956,7 @@ class HtmlTableVisualEditor(QMainWindow):
     def new_file(self):
         if self.ask_discard_changes():
             self.current_file = None
-            self.load_html(DEFAULT_HTML)
+            self.load_html(EMPTY_HTML)
             self.setWindowTitle("HTML Table Visual Editor v2 - Nuevo archivo")
 
     def open_file(self):
