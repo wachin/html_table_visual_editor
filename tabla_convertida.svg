@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1327" height="84" viewBox="0 0 1327 84">
+  <rect width="1327" height="84" fill="white"/>
+
+  <style>
+    .line { stroke:#222; stroke-width:1; fill:none; shape-rendering:crispEdges; }
+    .txt { font-family:"Times New Roman", Times, serif; font-size:18px; fill:#000; }
+  </style>
+
+  <!-- Borde exterior -->
+  <rect x="3" y="2" width="1322" height="80" class="line"/>
+  <rect x="5" y="4" width="1318" height="76" class="line"/>
+
+  <!-- Líneas verticales principales -->
+  <line x1="69" y1="4" x2="69" y2="80" class="line"/>
+  <line x1="424" y1="4" x2="424" y2="80" class="line"/>
+  <line x1="426" y1="4" x2="426" y2="80" class="line"/>
+  <line x1="595" y1="4" x2="595" y2="80" class="line"/>
+  <line x1="597" y1="4" x2="597" y2="80" class="line"/>
+  <line x1="1237" y1="4" x2="1237" y2="80" class="line"/>
+  <line x1="1239" y1="4" x2="1239" y2="80" class="line"/>
+
+  <!-- División interna de la segunda columna -->
+  <line x1="69" y1="53" x2="424" y2="53" class="line"/>
+
+  <!-- Texto -->
+  <text class="txt" x="8" y="49">Malasia</text>
+
+  <text class="txt" x="74" y="23">18 g de GKA, 50 g de azúcar cruda orgánica y</text>
+  <text class="txt" x="74" y="45">500 mL de agua mineral.</text>
+  <text class="txt" x="74" y="73">24 h a temperatura ambiente</text>
+
+  <text class="txt" x="430" y="38">Secuenciación de</text>
+  <text class="txt" x="430" y="61">ARNr 16S</text>
+
+  <text class="txt" x="601" y="38">Lb. hilgardii,Lb. harbinensis,Acetobacter lovaniensis,Lb.satsumensis,Acetobacter</text>
+  <text class="txt" x="601" y="61">tropicalis,Lb. zeae,Oenococcus oeni</text>
+
+  <text class="txt" x="1268" y="49">[16]</text>
+</svg>
